@@ -1,0 +1,36 @@
+{% extends "news/base.html" %} 
+
+{% load static %}
+
+{% block css %}
+<!-- aqui se cargan -->
+{% endblock css %}
+
+{% block contenido %}
+
+<div class="container-fluid mt-5 pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title mb-0">
+                    <h4 class="m-0 text-uppercase font-weight-bold">Editar Periodista</h4>
+                </div>
+                <div class="bg-white border border-top-0 p-4 mb-3">
+                    <h6 class="text-uppercase font-weight-bold mb-3">Editar Periodista</h6>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}
+
+{% block js %}
+<!-- aqui se cargan -->
+        
+{% endblock js %}

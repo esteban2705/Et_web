@@ -1,0 +1,60 @@
+
+{% extends "news/base.html" %} 
+
+{% load static %}
+
+{% block css %}
+<!-- aqui se cargan -->
+{% endblock css %}
+
+{% block contenido %}
+
+<body>
+    <header>
+        <div class="container">
+            <h1>newpost</h1>
+        </div>
+    </header>
+    <div class="container">
+
+        <div class="content">
+            <h2>Indicadores Económicos</h2>
+            <div id="economicData">
+                {% if indicators.dolar %}
+                    <div class="indicator">
+                        <h3>Dólar</h3>
+                        <p>Valor: {{ indicators.dolar.valor }}</p>
+                        <p>Unidad de medida: {{ indicators.dolar.unidad_medida }}</p>
+                    </div>
+                {% endif %}
+                {% if indicators.euro %}
+                    <div class="indicator">
+                        <h3>Euro</h3>
+                        <p>Valor: {{ indicators.euro.valor }}</p>
+                        <p>Unidad de medida: {{ indicators.euro.unidad_medida }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="admin-panel">
+            <h2>Panel de Periodista</h2>
+            <a href="{% url 'add_news' %}">Agregar Noticia</a>
+            <a href="{% url 'list_news' %}">Lista De Noticia</a>
+        </div>
+        <div class="admin-panel">
+            <h2>Panel de Administrador</h2>
+            <a href="{% url 'add_journalist' %}">Agregar Periodista</a>
+            <a href="{% url 'journalist_list' %}">Lista De Periodista</a>
+        </div>
+    </div>
+
+
+{% endblock contenido %}
+
+{% block js %}
+<!-- aqui se cargan -->
+
+{% endblock js %}
+
+
+ 

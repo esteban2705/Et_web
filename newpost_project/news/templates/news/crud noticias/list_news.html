@@ -1,0 +1,39 @@
+{% extends "news/base.html" %} 
+
+{% load static %}
+
+{% block css %}
+<!-- Aquí se pueden cargar archivos CSS personalizados -->
+{% endblock css %}
+
+{% block contenido %}
+
+<div class="container-fluid mt-5 pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title mb-0">
+                    <h4 class="m-0 text-uppercase font-weight-bold">Editar Noticia</h4>
+                </div>
+                <div class="bg-white border border-top-0 p-4 mb-3">
+                    <ul>
+                        {% for noticia in noticias %}
+                            <li>
+                                {{ periodista.first_name }} {{ periodista.last_name }} - {{ periodista.email }}
+                                <a href="{% url 'edit_news' noticia.pk %}">Editar</a>
+                                <a href="{% url 'delete_news' noticia.pk %}">Eliminar</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{% url 'add_news' %}">Agregar Noticia</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}
+
+{% block js %}
+<!-- Aquí se pueden cargar archivos JS personalizados -->
+{% endblock js %}
