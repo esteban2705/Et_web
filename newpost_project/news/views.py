@@ -134,5 +134,20 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('news/login/login.html')
+def registrarse(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            if user.is_staff:
+                # Redirigir a la página de administrador
+                return redirect('journalist_list')
+            else:
+                # Redirigir a la página de usuario regular
+                return redirect('index')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'news/login/registrarse.html', {'form': form})    
+    
 
 #fin de inicio de sesion
