@@ -33,6 +33,7 @@ urlpatterns = [
 
     #INICIO DE SESSION
     path('login/', views.user_login, name='login'),
+    path('register/', views.registrar, name='register'),
     path('logout/', views.user_logout, name='logout'),
     #FIN DE SESSION
 ]
